@@ -1,0 +1,93 @@
+<div class="container">
+    <div id="calendar-container">
+        <div class="d-flex justify-content-between bg-samasecondary px-2 py-3 text-white" id="cal-buttons">
+            <div id="cal-date-nav-buttons">
+                <button class="px-2 py-3" id="previous" 
+                    mwlCalendarPreviousView [(viewDate)]="viewDate"
+                    [view]="view" [excludeDays]="[0,6]"
+                    [ngClass]="{ 'active-button': btnNavActif === 'previous', 'non-active-button': btnNavActif !== 'previous' }"
+                    (click)="setBtnActive('previous')"
+                >
+                    <i class="bi bi-chevron-double-left"></i>
+                    Précédent
+                </button>
+                <button class="px-2 py-3" id="today" 
+                    mwlCalendarToday [(viewDate)]="viewDate"
+                    [ngClass]="{ 'active-button': btnNavActif === 'today', 'non-active-button': btnNavActif !== 'today' }"
+                    (click)="setBtnActive('today')"
+                >
+                    Aujourd'hui
+                </button>
+                <button class="px-2 py-3" id="next" 
+                    mwlCalendarNextView [(viewDate)]="viewDate" [view]="view" 
+                    [excludeDays]="[0,6]"
+                    [ngClass]="{ 'active-button': btnNavActif === 'next', 'non-active-button': btnNavActif !== 'next' }"
+                    (click)="setBtnActive('next')"
+                >
+                    Suivant
+                    <i class="bi bi-chevron-double-right"></i>
+                </button>
+            </div>
+            <div class="h2" id="cal-date-field"> {{ viewDate | calendarDate:(view + 'ViewTitle') : 'fr' }} </div>
+            <div id="cal-view-nav-buttons">
+                <button class="p-3"  id="month" 
+                    [ngClass]="{ 'active-button': boutonActif === 'month', 'non-active-button': boutonActif !== 'month' }" 
+                    (click)="setView(CalendarView.Month, 'month')"
+                >
+                    <i class="bi bi-calendar-month-fill"></i>
+                    Mois
+                </button>
+                <button class="p-3" id="week" 
+                    [ngClass]="{ 'active-button': boutonActif === 'week', 'non-active-button': boutonActif !== 'week' }" 
+                    (click)="setView(CalendarView.Week, 'week')"
+                >
+                    <i class="bi bi-calendar-week-fill"></i>
+                    Semaine
+                </button>
+                <button class="p-3" id="day" 
+                    [ngClass]="{ 'active-button': boutonActif === 'day', 'non-active-button': boutonActif !== 'day' }" 
+                    (click)="setView(CalendarView.Day, 'day')"
+                >
+                <i class="bi bi-calendar-day-fill"></i>
+                    Jour
+                </button>
+            </div>
+        </div>
+        <span [ngSwitch]="view">
+            <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" 
+                [viewDate]="viewDate" [events]="events"
+                [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+                [excludeDays]="[0,6]" (eventClicked)="eventClicked($event)"
+                [eventTitleTemplate]="customEventsStyle"
+                locale = "fr"
+            >
+            </mwl-calendar-month-view>
+            <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" 
+                [viewDate]="viewDate" [events]="events" 
+                [excludeDays]="[0,6]" (eventClicked)="eventClicked($event)" 
+                [dayStartHour]="8" [dayEndHour]="18" 
+                [eventTitleTemplate]="customEventsStyle"
+                locale = "fr"
+            >
+            </mwl-calendar-week-view>
+            <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" 
+                [viewDate]="viewDate" [events]="events" 
+                [dayStartHour]="8" [dayEndHour]="18" 
+                (eventClicked)="eventClicked($event)" 
+                [eventTitleTemplate]="customEventsStyle"
+                locale = "fr"
+            >
+            </mwl-calendar-day-view>
+        </span>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Modèle personnalisé pour l'affichage des détails de l'événement -->
+<ng-template #customEventsStyle let-event="event">
+    <app-custom-event-template [event]="event"></app-custom-event-template>
+</ng-template>

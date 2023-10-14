@@ -1,0 +1,11 @@
+.active-button {
+    background-color: white; 
+    border: 1px solid white; 
+    color: #FF7F00;
+}
+
+.non-active-button{
+    background-color: #FF7F00; 
+    border: 1px solid white;
+    color: white;
+}

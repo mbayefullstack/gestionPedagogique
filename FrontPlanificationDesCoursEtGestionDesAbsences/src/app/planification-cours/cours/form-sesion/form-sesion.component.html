@@ -1,0 +1,147 @@
+<div class="container mt-5" id="formSessionCours">
+    <form class="shadow p-4 bg-white" (ngSubmit)="saveData()" [formGroup]="addCoursFormGroup" style="border-top: #01b4ba solid 2px;">
+        <!-- <a name="formSessionCours"></a> -->
+        <h1 class="bg-samaprimary text-white p-2 mx-1 text-center">
+            <span>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i> 
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                &nbsp;&nbsp;&nbsp;
+            </span> 
+            Ajout d'une session de cours
+            <span>
+                &nbsp;&nbsp;&nbsp;
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i> 
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+                <i class="bi bi-record-circle-fill fs-2">&nbsp;</i>
+            </span> 
+        </h1>
+
+        <div class="alert h5" id="msg-info" role="alert" #msgInfo>
+            <marquee loop="1" behavior="slide" scrollamount="150" direction="left" id="txt">A simple primary alert—check it out!</marquee>
+        </div>
+
+        <!-- Ligne 1 -->
+        <div class="row mb-3">
+            <div class="col">
+                <label for="module" class="form-label">Module</label>
+                <ng-select class="form-control" id="module" placeholder="*** Séléctionner un module ***" *ngIf="modules.length > 0"   (change)="onModuleChange($event)" formControlName="module" [ngClass]="{
+                    'is-invalid': (moduleCtrl.touched || moduleCtrl.dirty) && moduleCtrl.invalid,
+                    'is-valid': (moduleCtrl.touched || moduleCtrl.dirty) && moduleCtrl.valid
+                  }">
+                    <ng-option *ngFor="let module of modules" [value]="module.id">{{ module.libelle }}</ng-option>
+                </ng-select>
+                <div class="invalid-feedback">
+                    <span *ngIf="moduleCtrl.errors?.['required']">Le module est obligatoire...</span>
+                    <span *ngIf="moduleCtrl.errors?.['min']">Le module doit exister...</span>
+                </div>
+            </div>
+            <div class="col">
+                <label for="professeur" class="form-label">Professeur</label>
+                <ng-container *ngIf="profs.length > 0">
+                    <ng-select class="form-control" id="professeur" placeholder="*** Séléctionner un professeur ***" [clearable]="false" formControlName="prof" [ngClass]="{
+                        'is-invalid': (profCtrl.touched || profCtrl.dirty) && profCtrl.invalid,
+                        'is-valid': (profCtrl.touched || profCtrl.dirty) && profCtrl.valid
+                      }">
+                        <ng-option *ngFor="let prof of profs" [value]="prof.id">{{ prof.prenom }} {{ prof.nom }}</ng-option>
+                    </ng-select>
+                    <div class="invalid-feedback">
+                        <span *ngIf="profCtrl.errors?.['required']">Le module est obligatoire...</span>
+                        <span *ngIf="profCtrl.errors?.['min']">Le module doit exister...</span>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!(profs.length > 0)">
+                    <input class="form-control mt-2" type="text" disabled>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- Ligne 2 -->
+        <div class="row mb-3">
+            <div class="col">
+                <label for="module" class="form-label">En Ligne</label>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Cocher pour dire cours en ligne</label>
+                </div>
+                <div class="invalid-feedback">
+                    <span *ngIf="moduleCtrl.errors?.['required']">Le module est obligatoire...</span>
+                    <span *ngIf="moduleCtrl.errors?.['min']">Le module doit exister...</span>
+                </div>
+            </div>
+            <div class="col">
+                <label for="professeur" class="form-label">Salle</label>
+                <ng-select class="form-control" id="module" placeholder="*** Séléctionner un module ***" *ngIf="modules.length > 0"   (change)="onModuleChange($event)" formControlName="module" [ngClass]="{
+                    'is-invalid': (moduleCtrl.touched || moduleCtrl.dirty) && moduleCtrl.invalid,
+                    'is-valid': (moduleCtrl.touched || moduleCtrl.dirty) && moduleCtrl.valid
+                  }">
+                    <ng-option *ngFor="let module of modules" [value]="module.id">{{ module.libelle }}</ng-option>
+                </ng-select>
+                <div class="invalid-feedback">
+                    <span *ngIf="moduleCtrl.errors?.['required']">Le module est obligatoire...</span>
+                    <span *ngIf="moduleCtrl.errors?.['min']">Le module doit exister...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ligne 3 -->
+        <div class="row mb-3">
+            <div class="col">
+                <label for="module" class="form-label">Classe</label>
+                <ng-select class="form-control" id="module" placeholder="*** Séléctionner un module ***" *ngIf="modules.length > 0"   (change)="onModuleChange($event)" formControlName="module" [ngClass]="{
+                    'is-invalid': (moduleCtrl.touched || moduleCtrl.dirty) && moduleCtrl.invalid,
+                    'is-valid': (moduleCtrl.touched || moduleCtrl.dirty) && moduleCtrl.valid
+                  }">
+                    <ng-option *ngFor="let module of modules" [value]="module.id">{{ module.libelle }}</ng-option>
+                </ng-select>
+                <div class="invalid-feedback">
+                    <span *ngIf="moduleCtrl.errors?.['required']">Le module est obligatoire...</span>
+                    <span *ngIf="moduleCtrl.errors?.['min']">Le module doit exister...</span>
+                </div>
+            </div>
+            <div class="col">
+                <label for="exampleInputEmail1" class="form-label">Date cours</label>
+                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div class="invalid-feedback">
+                    <span *ngIf="moduleCtrl.errors?.['required']">Le module est obligatoire...</span>
+                    <span *ngIf="moduleCtrl.errors?.['min']">Le module doit exister...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ligne 4 -->
+        <div class="row mb-3">
+            <div class="col">
+                <label for="hd" class="form-label">Heure de début</label>
+                <input type="time" class="form-control" id="hd" aria-describedby="hdHelp">
+                <div class="invalid-feedback">
+                    <span *ngIf="moduleCtrl.errors?.['required']">Le module est obligatoire...</span>
+                    <span *ngIf="moduleCtrl.errors?.['min']">Le module doit exister...</span>
+                </div>
+            </div>
+            <div class="col">
+                <label for="hf" class="form-label">Heure de fin</label>
+                <input type="time" class="form-control" id="hf" aria-describedby="hfHelp">
+            </div>
+        </div>
+        
+
+        <!-- Ligne 5 -->
+        <div class="row">
+            <div class="col text-start myhover">
+                <button type="button" class="btn btn-secondary py-3 px-5" (click)="goToPart('hautNav')"><i class="bi bi-arrow-90deg-up"></i> &nbsp; Retour en haut</button>
+            </div>
+            <div class="col text-end myhover">
+                <button type="reset" class="btn me-2 py-3 px-5 text-white" style="background-color: #FF7F00;"><i class="bi bi-x-octagon-fill"></i> &nbsp; Annuler</button>
+                <button type="submit" [disabled]="!addCoursFormGroup.valid" class="btn btn-primary py-3 px-5 border border-white" style="background-color: #01b4ba;"><i class="bi bi-floppy-fill"></i> &nbsp; Enregistrer</button>
+            </div>
+        </div>
+    </form>
+</div>
+

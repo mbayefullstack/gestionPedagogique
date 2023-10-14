@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
+  <!-- Bouton de basculement du menu (Hamburger) -->
+  <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse d-sm-block d-md-flex justify-content-between align-items-center bg-samasecondary me-2 px-2" style="width: 100%;" id="navbarNav">
+      <!-- Partie gauche -->
+      <div class="navbar-brand ml-auto">
+          <span><span class="text-decoration-underline" style="font-weight: bold;">Année Scolaire:</span> 2023-2024</span>
+          &nbsp;&nbsp;&nbsp;<i class="bi bi-displayport "></i>&nbsp;&nbsp;&nbsp;
+          <span>Semestre 1</span>
+      </div>
+
+
+
+       <!-- Ajoutez ici les éléments du menu latéral -->
+       <ul class="nav flex-column ms-1">
+        <li class="nav-item">
+            <a routerLink="/dashboard" [class.current-page]="isActive('/dashboard')" class="nav-link text-white text-center text-sm-start" aria-current="page">
+                <i class="bi bi-speedometer"></i>
+                <span class="ms-2 d-none d-sm-inline">Année scolaire</span>
+            </a>
+            
+        </li>
+        <!-- Ajoutez d'autres éléments de menu ici -->
+    </ul>
+
+      <!-- Partie droite -->
+      <div class="navbar-brand mr-auto">
+          <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Photo de profil" class="rounded-circle" width="90" height="90">
+                  <span class="ms-2">Ibrahima Diao</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end font-weight-bold" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="#">
+                      <i class="bi bi-gear-fill text-samaprimary"> </i>
+                      <span class="text-samaprimary"> Paramètres </span>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                      <i class="bi bi-box-arrow-in-down-left text-samaprimary"> </i>
+                      <span class="text-samaprimary"> Déconnexion </span>
+                  </a>
+              </div>
+          </div>
+      </div>
+
+
+  </div>
+</nav>

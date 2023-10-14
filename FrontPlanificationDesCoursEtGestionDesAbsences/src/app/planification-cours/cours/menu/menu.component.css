@@ -1,0 +1,25 @@
+
+/* .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+} */
+
+.btn-outline-samasecondary:hover{
+    border: solid 1px #01b4ba;
+    color: #01b4ba;
+    background-color: white;
+}
+
+.btn-outline-samasecondary{
+    color: white;
+    background-color: #01b4ba;
+}

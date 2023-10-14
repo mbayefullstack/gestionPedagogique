@@ -1,0 +1,189 @@
+<div class="row pt-4" style="border-top: 3px solid #01b4ba;">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card shadow h-100 py-2" style="border: none; border-left: 7px dashed #FF7F00; border-top: 1px solid #FF7F00;">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-auto text-xs font-weight-bold text-uppercase mb-1 h5" style="color: #FF7F00;">
+                                Type
+                            </div>
+                            <div class="col-auto">
+                                <div class="mb-0 mr-3 opacity-75">Total: 2</div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col">
+                                <ng-select class="form-control" id="salle" [clearable]="false" [(ngModel)]="typeSelected.id" >
+                                    <ng-option *ngFor="let type of types" [value]="type.id">{{ type.libelle }}</ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-bookmark-star-fill fs-1 text-secondary opacity-25"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4" *ngIf="typeSelected.id === 1; else elseBlock">
+        <div class="card shadow h-100 py-2" style="border: none; border-left: 7px dashed rgb(4, 136, 4); border-top: 1px solid rgb(4, 136, 4);">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-auto text-xs font-weight-bold text-success text-uppercase mb-1 h5">
+                                Classe
+                            </div>
+                            <div class="col-auto">
+                                <div class="mb-0 mr-3 opacity-75">Total: 10</div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col">
+                                <ng-select class="form-control" id="salle" [clearable]="false" [(ngModel)]="classes[0].id" >
+                                    <ng-option *ngFor="let classe of classes" [value]="classe.id">{{ classe.libelle }}</ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-people-fill fs-1 text-secondary opacity-25"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow h-100 py-2" style="border: none; border-left: 7px dashed rgb(255, 204, 0); border-top: 1px solid rgb(255, 204, 0);">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col-auto text-xs font-weight-bold text-warning text-uppercase mb-1 h5">
+                                    Prof
+                                </div>
+                                <div class="col-auto">
+                                    <div class="mb-0 mr-3 opacity-75">Total: 30</div>
+                                </div>
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col">
+                                    <ng-select class="form-control" id="salle" [clearable]="false" [(ngModel)]="profs[0].id" >
+                                        <ng-option *ngFor="let prof  of profs" [value]="prof.id">{{ prof.prenom }} {{ prof.nom }}</ng-option>
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="bi bi-person-vcard fs-1 text-secondary opacity-25"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card shadow h-100 py-2" style="border: none; border-left: 7px dashed rgb(3, 185, 246); border-top: 1px solid rgb(3, 185, 246);">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-auto text-xs font-weight-bold text-info text-uppercase mb-1 h5">
+                                Salle
+                            </div>
+                            <div class="col-auto">
+                                <div class="mb-0 mr-3 opacity-75">Total: 18</div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col">
+                                <ng-select class="form-control" id="salle" [clearable]="false" [(ngModel)]="salles[0].id" >
+                                    <ng-option *ngFor="let salle of salles" [value]="salle.id">{{ salle.libelle }}</ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-house-gear-fill fs-1 text-secondary opacity-25"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card shadow h-100 py-2" style="border: none; border-left: 7px dashed #01b4ba; border-top: 1px solid #01b4ba;">
+            <div class="card-body" >
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-auto text-xs font-weight-bold text-uppercase mb-1 h5" style="color: #01b4ba;">
+                                Statut
+                            </div>
+                            <div class="col-auto">
+                                <div class="mb-0 mr-3 opacity-75">Total: 2</div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col">
+                                <ng-select class="form-control" id="salle" [clearable]="false" [(ngModel)]="statuts[0].id" >
+                                    <ng-option *ngFor="let statut of statuts" [value]="statut.id">{{ statut.libelle }}</ng-option>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-cash-stack fs-1 text-secondary opacity-25"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row pt-4 d-flex justify-content-end" >
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-6 col-md-12 mb-4">
+        <div class="card shadow h-100 py-2" style="border: #01b4ba solid 2px;">
+            <div class="card-body" >
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="row d-flex justify-content-between">
+                            <div class="col-auto text-xs font-weight-bold text-uppercase mb-1 h5" style="color: #01b4ba;">
+                                Session de cours
+                            </div>
+                            <div class="col-auto">
+                                <div class="mb-0 mr-3 opacity-75">Total session: 2</div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col">
+                                <button type="button" (click)="goToPart('formSessionCours')" class="btn btn-outline-samasecondary fs-5 py-2 w-100">
+                                    <i class="bi bi-plus-circle-fill"></i>
+                                    ajouter une nouvelle session
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-folder-plus fs-1 text-secondary opacity-25"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@import '~@ng-select/ng-select/themes/default.theme.css';
+
+
+.mybody{
+    background-color: rgb(219, 219, 219);
+}
+
+.bg-samaprimary{
+    background-color: #FF7F00;
+}
+
+.text-samaprimary{
+    color: #FF7F00;
+}
+
+
+.bg-samasecondary{
+    background-color: #01b4ba;
+}
+
+.text-samasecondary{
+    color: #01b4ba;
+}
+
+.myhover :hover{
+    /* opacity: .5; */
+    /* filter: saturate(250%); */
+    filter: saturate(100%) brightness(.75); /* Augmente la saturation et la luminosité */
+    
+}
+
+
+.btn-outline-samasecondary{
+    border: solid 1px #01b4ba;
+    color: #01b4ba;
+    background-color: white;
+}
+
+.btn-outline-samasecondary:hover{
+    color: white;
+    background-color: #01b4ba;
+}
+
+
+#msg-info{
+    display: none;
+}

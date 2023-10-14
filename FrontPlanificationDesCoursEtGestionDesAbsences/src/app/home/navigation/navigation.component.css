@@ -1,0 +1,22 @@
+.nav-pills li a:hover{
+    background-color: #020201;
+    opacity: .8;
+    border-radius: 20px;
+
+}
+
+.nav-pills li.active {
+    background-color: #FF7F00;
+    border: 1px solid #FFF;
+    border-radius: 20px;
+    padding: 0px 30px;
+}
+
+.current-page{
+    background-color: #FF7F00;
+    border: 1px solid #FFF;
+    border-radius: 20px;
+    /* padding: 0px 30px; */
+}
+
+
